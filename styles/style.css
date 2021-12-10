@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+#myChart {
+  width: 100%;
+  max-width: 700px;
+  height: 70%;
+  margin: auto;
+}
+
+.navbar{
+    margin-top: 5rem;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.regions,.countries,.total{
+    padding: 0 2%;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 99, 132,0.8);
+    background-color: rgba(255, 99, 132,0.2);
+    color: #3f3f3f;
+}
