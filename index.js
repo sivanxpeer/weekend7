@@ -6,7 +6,8 @@ const proxy = "https://intense-mesa-62220.herokuapp.com/";
 
 const countriesCodes = [];
 const countriesNames = [];
-const regions = [];
+const countriesData = [];
+// const regions = [];
 
 {/* <canvas id="myChart" width="400" height="400"></canvas>; */ }
 const ctx = document.getElementById("myChart").getContext("2d");
@@ -52,25 +53,55 @@ async function getContriesCode() {
     let data = await fetch(`${proxy}${baseCountriesURL}`);
     let dataJ = await data.json();
     console.log(dataJ);
-    for(let rowItem of dataJ ){
+    for (let rowItem of dataJ) {
         countriesCodes.push(rowItem.cca2);
     }
-
 }
+
+async function getRegionsByCountryCode(){
+    
+}
+
+// const regions = [];
+// async function getRegion() {
+//     let data = await fetch(`${proxy}${baseCountriesURL}`);
+//     let dataJ = await data.json();
+//     // console.log(dataJ);
+
+//     for (let rowItem of dataJ) {
+//         // setTimeout(()=>{
+//         return (rowItem.region);
+
+//         //         regions.push({
+//         //             "region": rowItem.region,
+//         //         })
+//         //         // console.log(regions);
+//         // }
+//         // return regions;
+//     }
+// }
 
 async function getCountryData() {
     let response = await fetch('https://corona-api.com/countries');
     let responseJ = await response.json();
-    console.log(responseJ);
-    for(let rowItem of responseJ.data){
-        countriesNames.push(rowItem.name);
-        regions.push(rowItem.region);
-    }        
+    // console.log(responseJ);
+    for (let rowItem of responseJ.data) {
+        // console.log(rowItem);
+        countriesData.push({
+            "name": rowItem.name,
+            "code": rowItem.code,
+            "confirmed cases": rowItem.latest_data.confirmed,
+            "number of deaths": rowItem.latest_data.deaths,
+            "number of recovered": rowItem.latest_data.deaths,
+            "number of critical conditions": rowItem.latest_data.critical,
+
+        })
+    }
 }
 
-getContriesCode();
-console.log(countriesCodes);
-// console.log(getCountryData());
+
 getCountryData();
-console.log(countriesNames);
-console.log(regions);
+console.log(countriesData);
+
+// console.log(regions);
+// getRegions();
