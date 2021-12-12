@@ -3,29 +3,37 @@
   margin: 0;
   padding: 0;
 }
-
-body {
-  height: 100vh;
+  
+.body{
+  height:100vh;
+  /* justify-content: center; */
+  
 }
-
-#myChart {
-  width: 100%;
-  max-width: 700px;
-  height: 70%;
+.contiDiv1{
+  margin-top:10%;
+  display:flex;
+  justify-content: center;
+  border:2px red solid;
+}
+.contiDiv2{
+  display:flex;
+  justify-content: center;
+  border:2px red solid;
+  align-items: center;
+}
+.button{
+  font-size:15px;
+}
+.buttonconti{
+  font-size:15px;
+}
+.canvas{
+ margin-top:5%;
+ height: 100%;
+}
+#chartContinent{
   margin: auto;
-}
-
-.navbar{
-    margin-top: 5rem;
-    height: 10%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.regions,.countries,.total{
-    padding: 0 2%;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 99, 132,0.8);
-    background-color: rgba(255, 99, 132,0.2);
-    color: #3f3f3f;
+  width:50%;
+  height:10%;
+  border:2px red solid;
 }

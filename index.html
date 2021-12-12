@@ -9,32 +9,23 @@
     <title>Covid Data</title>
   </head>
   <body>
-    <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-    <canvas id="myChart"></canvas>
-
-    <nav class="navbar">
-      <select name="Regions" class="regions">
-        <option value="" selected="selected">Region</option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Australia">Australia</option>
-        <option value="Europe">Europe</option>
-        <option value="World">World</option>
-      </select>
-      <select name="countries" class="countries">
-        <option value="">Country</option>
-      </select>
-      <select name="total" class="total">
-        <option selected="" value="total">Total</option>
-        <option value="cases">Cases</option>
-        <option value="deaths">Deaths</option>
-        <option value="critical">Critical</option>
-        <option value="recovered">Recovered</option>
-      </select>
-    </nav>
-    <script src="/index.js"></script>
+    <div class="canvas">
+      <canvas id="chartContinent"></canvas>
+  </div>
+  <div class="contiDiv1">
+      <button class="button">Confirmed</button>
+      <button class="button">Deaths</button>
+      <button class="button">Recoverd</button>
+      <button class="button">Critical</button>
+  </div>
+  <div class="contiDiv2">
+      <button data-type="asia" class="buttonconti">Asia</button>
+      <button class="buttonconti">America</button>
+      <button class="buttonconti">Europe</button>
+      <button class="buttonconti">Africa</button>
+      <button class="buttonconti">World</button>
+  </div>
+    <script src="/index1.js"></script>
     <!-- <script src="/test.js"></script> -->
-
   </body>
 </html>
