@@ -158,7 +158,7 @@ async function showStat() {
     else if (e.target.className.includes("america")) {
       chartContinent.destroy();
       drawChart(americaConfirmed, americaName);
-      showStatsByCaseAsia();
+      showStatsByCaseAmerica();
     }
     else if (e.target.className.includes("europe")) {
       chartContinent.destroy();
@@ -355,6 +355,7 @@ async function main() {
   allCountriesArr = await getConti(allCountriesArr);
   allCountriesArr = newArrOfRegion(allCountriesArr);
   await showStat();
+
   // await showStatsByCase();
 }
 main();
