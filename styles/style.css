@@ -9,6 +9,17 @@ body{
   /* justify-content: center; */
 }
 
+button{
+  padding: 2px;
+  margin: 2px;
+  border-radius: 5px ;
+  border: 0.2px solid gray;
+}
+
+button:hover{
+cursor: pointer;
+}
+
 .contiDiv1{
   /* margin-top:10%; */
   display:flex;
@@ -22,6 +33,7 @@ body{
   border:2px red solid;
   align-items: center;
 }
+
 
 .button{
   font-size:15px;
