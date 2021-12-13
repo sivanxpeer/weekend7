@@ -1,31 +1,39 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <title>Covid Data</title>
-  </head>
-  <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
+    <title>corona</title>
+</head>
+
+<body>
     <div class="canvas">
-      <canvas id="chartContinent"></canvas>
-  </div>
-  <div class="contiDiv1">
-      <button class="button">Confirmed</button>
-      <button class="button">Deaths</button>
-      <button class="button">Recoverd</button>
-      <button class="button">Critical</button>
-  </div>
-  <div class="contiDiv2">
-      <button data-type="asia" class="buttonconti">Asia</button>
-      <button class="buttonconti">America</button>
-      <button class="buttonconti">Europe</button>
-      <button class="buttonconti">Africa</button>
-      <button class="buttonconti">World</button>
-  </div>
-    <script src="/index1.js"></script>
-    <!-- <script src="/test.js"></script> -->
-  </body>
+        <canvas id="chartContinent"></canvas>
+    </div>
+    <div class="contiDiv1">
+        <button class="button confirmed">Confirmed</button>
+        <button class="button deaths">Deaths</button>
+        <button class="button recovered">Recoverd</button>
+        <button class="button critical">Critical</button>
+    </div>
+    <div class="contiDiv2">
+        <!-- <button data-type="asia" class="buttonconti">Asia</button> -->
+        <button class="buttonConti asiaButton">Asia</button>
+        <!-- <button data-type="america" class="button">America</button> -->
+        <button class="buttonConti americaButton">America</button>
+        <button class="buttonConti europeButton">Europe</button>
+        <button class="buttonConti africaButton">Africa</button>
+        <button class="buttonConti oceaniaButton">Oceania</button>
+
+
+        <button class="buttocnConti worldButton">World</button>
+    </div>
+    <script src="/index.js"></script>
+</body>
+
 </html>

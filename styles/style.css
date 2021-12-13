@@ -3,37 +3,42 @@
   margin: 0;
   padding: 0;
 }
-  
-.body{
+
+body{
   height:100vh;
   /* justify-content: center; */
-  
 }
+
 .contiDiv1{
-  margin-top:10%;
+  /* margin-top:10%; */
   display:flex;
   justify-content: center;
   border:2px red solid;
 }
+
 .contiDiv2{
   display:flex;
   justify-content: center;
   border:2px red solid;
   align-items: center;
 }
+
 .button{
   font-size:15px;
 }
-.buttonconti{
+
+.buttonConti{
   font-size:15px;
 }
+
 .canvas{
  margin-top:5%;
- height: 100%;
+ height: 60%;
 }
+
 #chartContinent{
   margin: auto;
   width:50%;
-  height:10%;
+  /* height:10%; */
   border:2px red solid;
 }

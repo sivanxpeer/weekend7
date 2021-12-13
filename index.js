@@ -1,155 +1,250 @@
+//   .getContext('2d');
+// const chartContinent = document
+//   .getElementById('#chartContinent')
 
+const graph = document.getElementById('chartContinent').getContext('2d');
 
-const baseStatsURL = "http://corona-api.com/countries/";
-const baseCountriesURL = "https://restcountries.herokuapp.com/api/v1/";
-const proxy = "https://intense-mesa-62220.herokuapp.com/";
+const buttonConti = document.querySelector('.buttonConti');
+const contiDiv2 = document.querySelector('.contiDiv2');
+const contiDiv1 = document.querySelector('.contiDiv1');
+const asiaButton = document.querySelector('.asiaButton');
+const europeButton = document.querySelector('.europeButton');
+const oceaniaButton = document.querySelector('.oceaniaButton');
+const americaButton = document.querySelector('.americaButton');
+const africaButton = document.querySelector('.africaButton');
 
-const countriesCodes = [];
-const countriesNames = [];
-let arrAsia = [];
-let arrAfrica = [];
-let arrOceania = [];
-let arrAmerica = [];
-let restOfTheWorld = [];
-let asiaConfirmed = [];
-let asiaName = [];
+const asiaDeathButton = document.querySelector('.deaths');
+
+let chartContinent = new Chart(graph, {});
+
 let arrEurope = [];
-// const countriesData = [];
+let europeConfirmed = [];
+let europeName = [];
+let europeDeaths = [];
+let europeRecoverd = [];
+let europeCriticalCondition = [];
 
-const graph = document.getElementById("myChart").getContext("2d");
-let myChart = new Chart(graph, {});
-const continentsButton = document.querySelector(".continents-names");
+let arrAfrica = [];
+let africaConfirmed = [];
+let africaName = [];
+let africaDeaths = [];
+let africaRecoverd = [];
+let africaCriticalCondition = [];
 
-async function getCountryData() {
-    let countriesData = [];
-    let response = await fetch('https://corona-api.com/countries');
-    // let response = await fetch(`${proxy}${baseStatsURL}`);
-    let responseJ = await response.json();
-    // console.log(responseJ);
-    for (let rowItem of responseJ.data) {
-        // console.log(rowItem);
-        countriesData.push({
-            "name": rowItem.name,
-            "code": rowItem.code,
-            "confirmed cases": rowItem.latest_data.confirmed,
-            "number of deaths": rowItem.latest_data.deaths,
-            "number of recovered": rowItem.latest_data.deaths,
-            "number of critical conditions": rowItem.latest_data.critical,
-        })
-    }
-    return countriesData;
+let arrAmerica = [];
+let americaConfirmed = [];
+let americaName = [];
+let americaDeaths = [];
+let americaRecoverd = [];
+let americaCriticalCondition = [];
+
+let arrAsia = [];
+let asia = [];
+let asiaName = [];
+let asiaConfirmed = [];
+let asiaRecoverd = [];
+let asiaDeaths = [];
+let asiaCriticalCondition = [];
+
+let arrOceania = [];
+let oceaniaConfirmed = [];
+let oceaniaName = [];
+let oceaniaDeaths = [];
+let oceaniaRecoverd = [];
+let oceaniaCriticalCondition = [];
+
+let restOfTheWorld = [];
+
+const urlCountries =
+  'https://intense-mesa-62220.herokuapp.com/https://corona-api.com/countries';
+async function getCountry() {
+  const newArr = await fetch(urlCountries);
+  const res = await newArr.json();
+  let allCountriesArr = [];
+  for (let item of res.data) {
+    allCountriesArr.push({
+      name: item.name,
+      code: item.code,
+      ConfirmedCases: item.latest_data.confirmed,
+      numberofDeaths: item.latest_data.deaths,
+      numberOfRecovered: item.latest_data.recovered,
+      numberOfCriticalCondition: item.latest_data.critical,
+    });
+  }
+
+  return allCountriesArr;
 }
-async function getRegions(countriesData) {
-    const data = await fetch(`${proxy}${baseCountriesURL}`);
-    const dataJ = await data.json();
-    // console.log(dataJ)
-    for (let i = 0; i < countriesData.length; i++) {
-        for (let j = 0; j < countriesData.length; j++) {
-            if (dataJ[j].name.common === countriesData[i].name) {
-                countriesData[i].region = dataJ[j].region;
-            }
-        }
+
+const urlContinent =
+  'https://intense-mesa-62220.herokuapp.com/https://restcountries.herokuapp.com/api/v1';
+async function getConti(allCountriesArr) {
+  const fetchContinentFromUrl = await fetch(urlContinent);
+  const fetchcontinentFromUrlJson = await fetchContinentFromUrl.json();
+  for (let i = 0; i < fetchcontinentFromUrlJson.length; i++) {
+    for (let j = 0; j < allCountriesArr.length; j++) {
+      if (
+        allCountriesArr[j].name === fetchcontinentFromUrlJson[i].name.common
+      ) {
+        allCountriesArr[j].region = fetchcontinentFromUrlJson[i].region;
+      }
     }
-    return countriesData;
+  }
+  return allCountriesArr;
+}
+// const world = {
+//   asia: {},
+//   america: {},
+//   africa: {},
+//   europe: {},
+// };
+
+function newArrOfRegion(allCountriesArr) {
+  allCountriesArr.forEach((state) => {
+    switch (state.region) {
+      case 'Asia':
+        arrAsia.push(state);
+        asiaConfirmed.push(state.ConfirmedCases);
+        asiaName.push(state.name);
+        asiaDeaths.push(state.numberofDeaths);
+        asiaRecoverd.push(state.numberOfRecovered);
+        asiaCriticalCondition.push(state.numberOfCriticalCondition);
+        break;
+      case 'Europe':
+        arrEurope.push(state);
+        europeConfirmed.push(state.ConfirmedCases);
+        europeName.push(state.name);
+        europeDeaths.push(state.numberofDeaths);
+        europeRecoverd.push(state.numberOfRecovered);
+        europeCriticalCondition.push(state.numberOfCriticalCondition);
+        break;
+      case 'America':
+        arrAmerica.push(state);
+        americaConfirmed.push(state.ConfirmedCases);
+        americaName.push(state.name);
+        americaDeaths.push(state.numberofDeaths);
+        americaRecoverd.push(state.numberOfRecovered);
+        americaCriticalCondition.push(state.numberOfCriticalCondition);
+        break;
+      case 'Africa':
+        arrAfrica.push(state);
+        africaConfirmed.push(state.ConfirmedCases);
+        africaName.push(state.name);
+        africaDeaths.push(state.numberofDeaths);
+        africaRecoverd.push(state.numberOfRecovered);
+        africaCriticalCondition.push(state.numberOfCriticalCondition);
+        break;
+      case 'Oceania':
+        arrOceania.push(state);
+        oceaniaConfirmed.push(state.ConfirmedCases);
+        oceaniaName.push(state.name);
+        oceaniaDeaths.push(state.numberofDeaths);
+        oceaniaRecoverd.push(state.numberOfRecovered);
+        oceaniaCriticalCondition.push(state.numberOfCriticalCondition);
+        break;
+      default:
+        restOfTheWorld.push(state);
+    }
+  });
 }
 
-// async function getContriesCode() {
-//     let data = await fetch(`${proxy}${baseCountriesURL}`);
-//     let dataJ = await data.json();
-//     console.log(dataJ);
-//     for (let rowItem of dataJ) {
-//         countriesCodes.push(rowItem.cca2);
+
+async function showStat() {
+  contiDiv2.addEventListener("click", (e) => {
+    console.log(e.target.className)
+    if (e.target.className.includes("asia")) {
+      chartContinent.destroy();
+      drawChart(asiaConfirmed, asiaName);
+      return "asia";
+    }
+    else if (e.target.className.includes("america")) {
+      chartContinent.destroy();
+      drawChart(americaConfirmed, americaName);
+      return "america";
+    }
+    else if (e.target.className.includes("europe")) {
+      chartContinent.destroy();
+      drawChart(europeConfirmed, europeName);
+      return "europe";
+    }
+    else if (e.target.className.includes("africa")) {
+      chartContinent.destroy();
+      drawChart(africaConfirmed, africaName);
+      return "africa";
+    }
+    else if (e.target.className.includes("oceania")) {
+      chartContinent.destroy();
+      drawChart(oceaniaConfirmed, oceaniaName);
+      return "oceania";
+    }
+  })
+}
+
+async function showStatsByCase() {
+  contiDiv1.addEventListener("click", (e2) => {
+    console.log(e2.target.className);
+    if (e2.target.className.includes("confirmed")) {
+      console.log(asiaConfirmed);
+      chartContinent.destroy();
+      drawChart(asiaConfirmed, asiaName);
+    }
+    else if (e2.target.className.includes("deaths")) {
+      console.log(asiaDeaths);
+      chartContinent.destroy();
+      drawChart(asiaDeaths, asiaName);
+    }
+    else if (e2.target.className.includes("recovered")) {
+      console.log(asiaRecoverd);
+      chartContinent.destroy();
+      drawChart(asiaRecoverd, asiaName);
+    }
+    else if (e2.target.className.includes("critial")) {
+      console.log(asiaCriticalCondition);
+      chartContinent.destroy();
+      drawChart(asiaCriticalCondition, asiaName);
+    }
+
+  })
+
+}
+
+
+//hilas show stat --make it appear onload 
+// async function showStat() {
+//   asiaButton.addEventListener('click', (e) => {
+//     chartContinent.destroy();
+//     // console.log(e.target.className);
+//     if(e.target.className.contains("asia")){
+//       drawChart(asiaConfirmed, asiaName);
 //     }
-// }
+//     // else if(e.target.className.contains("america"))
+//     asiaDeathButton.addEventListener("click",()=>{
+//       chartContinent.destroy();
+//       drawChart(asiaDeaths, asiaName);
+//     })
+//   });
 
-
-function createContinentsArrays(countriesData) {
-    countriesData.forEach((state) => {
-        switch (state.region) {
-            case 'Asia':
-                arrAsia.push(state);
-                asiaConfirmed.push(state.confirmedCases);
-                asiaName.push(state.name);
-                break;
-            case 'Europe':
-                arrEurope.push(state);
-                break;
-            case 'America':
-                arrAmerica.push(state);
-                break;
-            case 'Africa':
-                arrAfrica.push(state);
-                break;
-            case 'Oceania':
-                arrOceania.push(state);
-                break;
-            default:
-                restOfTheWorld.push(state);
-        }
-    });
-}
-
-
-async function showStats() {
-    continentsButton.addEventListener('click', (event) => {
-        if (event.target.innerText === 'Asia'){
-            // chartContinent.destroy();
-            drawChart(asiaConfirmed, asiaName);
-        }
-    });
-}
-
-function drawChart(covidData, region) {
-    {/* <canvas id="myChart" width="400" height="400"></canvas>; */ }
-    myChart = new Chart(graph, {
-        type: "bar",
-        data: {
-            labels: region,
-            datasets: [
-                {
-                    label: "COVID-19",
-                    data: covidData,
-                    backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                    ],
-                    borderColor: [
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                    ],
-                    borderWidth: 1,
-                },
-            ],
+function drawChart(covidData, continent) {
+  chartContinent = new Chart(graph, {
+    type: 'bar',
+    data: {
+      labels: continent,
+      datasets: [
+        {
+          label: 'covid statisitc',
+          data: covidData,
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                },
-            },
-        },
-    });
-
+      ],
+    },
+    options: {},
+  });
 }
 
 
 async function main() {
-    let countriesData = await getCountryData();
-    countriesData = await getRegions(countriesData);
-    countriesData = createContinentsArrays(countriesData);
-    await showStats();
-    console.log("ASIA",asiaName);
-
-
+  let allCountriesArr = await getCountry();
+  allCountriesArr = await getConti(allCountriesArr);
+  allCountriesArr = newArrOfRegion(allCountriesArr);
+  await showStat();
+  await showStatsByCase();
 }
-
 main();
-
