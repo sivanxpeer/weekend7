@@ -116,7 +116,7 @@ function newArrOfRegion(allCountriesArr) {
         europeRecoverd.push(state.numberOfRecovered);
         europeCriticalCondition.push(state.numberOfCriticalCondition);
         break;
-      case 'America':
+      case 'Americas':
         arrAmerica.push(state);
         americaConfirmed.push(state.ConfirmedCases);
         americaName.push(state.name);
@@ -351,6 +351,7 @@ function drawChart(covidData, continent) {
 
 async function main() {
   let allCountriesArr = await getCountry();
+  console.log("here",allCountriesArr);
   allCountriesArr = await getConti(allCountriesArr);
   allCountriesArr = newArrOfRegion(allCountriesArr);
   await showStat();
