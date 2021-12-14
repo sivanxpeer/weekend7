@@ -17,6 +17,7 @@ button {
 
 button:hover {
   cursor: pointer;
+  background-color: rgba(255, 182, 193, 0.37);
 }
 
 .instructions {
@@ -50,13 +51,13 @@ button:hover {
   align-items: center;
 }
 
-.countriesForEachRegion {
+.countries-for-each-region {
   width: 90%;
   height: 10%;
   margin: 1rem auto;
 }
 
-.buttonContinents {
+.button-continents {
   margin-top: 1rem;
   background-color: lightpink;
   padding: 0.5rem;
@@ -70,8 +71,9 @@ button:hover {
   /* border:2px red solid; */
 }
 
-#chartContinent {
+#chart-continent {
   width: 80%;
   margin: 0 auto;
   /* height:10%; */
 }
+

@@ -1,7 +1,6 @@
 
-const graph = document.getElementById('chartContinent').getContext('2d');
+const graph = document.getElementById('chart-continent').getContext('2d');
 
-// const buttonContinents = document.querySelector('.buttonContinents');
 const continentsDiv1 = document.querySelector('.continents-1');
 const continentsDiv2 = document.querySelector('.continents-2');
 const asiaButton = document.querySelector('.asiaButton');
@@ -9,7 +8,7 @@ const europeButton = document.querySelector('.europeButton');
 const oceaniaButton = document.querySelector('.oceaniaButton');
 const americaButton = document.querySelector('.americaButton');
 const africaButton = document.querySelector('.africaButton');
-const countriesForEachRegion = document.querySelector('.countriesForEachRegion');
+const countriesForEachRegion = document.querySelector('.countries-for-each-region');
 const confirmedButton = document.querySelector('.confirmed');
 const deathButton = document.querySelector('.deaths');
 const recoveredButton = document.querySelector('.recovered');
@@ -356,7 +355,7 @@ function createButtonsForEachCountry(region) {
     let btn = document.createElement("button");
     console.log(country);
     btn.innerText = country;
-    document.querySelector(".countriesForEachRegion").appendChild(btn);
+    document.querySelector(".countries-for-each-region").appendChild(btn);
   }
 }
 
@@ -367,7 +366,7 @@ function drawChart(covidData, continent) {
       labels: continent,
       datasets: [
         {
-          label: 'covid statisitc',
+          label: 'COVID-19 Statistics',
           fill: false,
           backgroundColor: "rgb(255, 99, 132)",
           borderColor: "rgb(255, 99, 132)",
