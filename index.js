@@ -1,12 +1,9 @@
-//   .getContext('2d');
-// const chartContinent = document
-//   .getElementById('#chartContinent')
 
 const graph = document.getElementById('chartContinent').getContext('2d');
 
-const buttonConti = document.querySelector('.buttonConti');
-const contiDiv2 = document.querySelector('.contiDiv2');
-const contiDiv1 = document.querySelector('.contiDiv1');
+// const buttonContinents = document.querySelector('.buttonContinents');
+const continentsDiv1 = document.querySelector('.continents-1');
+const continentsDiv2 = document.querySelector('.continents-2');
 const asiaButton = document.querySelector('.asiaButton');
 const europeButton = document.querySelector('.europeButton');
 const oceaniaButton = document.querySelector('.oceaniaButton');
@@ -158,7 +155,7 @@ function changeButtonColorWhenClicked(buttonName,color){
 
 async function showStat(allCountriesArr) {
 
-  contiDiv2.addEventListener("click", (e) => {
+  continentsDiv2.addEventListener("click", (e) => {
     document.querySelector(".none").style.display="none";
     if (e.target.className.includes("asia")) {
       createButtonsForEachCountry(asiaName);
@@ -199,7 +196,7 @@ async function showStat(allCountriesArr) {
 
 //asia
 async function showStatsByCaseAsia() {
-  contiDiv1.addEventListener("click", (e2) => {
+  continentsDiv1.addEventListener("click", (e2) => {
     console.log(e2.target.className);
     if (e2.target.className.includes("confirmed")) {
       console.log(asiaConfirmed);
@@ -226,7 +223,7 @@ async function showStatsByCaseAsia() {
 
 //america
 async function showStatsByCaseAmerica() {
-  contiDiv1.addEventListener("click", (e2) => {
+  continentsDiv1.addEventListener("click", (e2) => {
     console.log(e2.target.className);
     if (e2.target.className.includes("confirmed")) {
       console.log(americaConfirmed);
@@ -254,7 +251,7 @@ async function showStatsByCaseAmerica() {
 
 //europe
 async function showStatsByCaseEurope() {
-  contiDiv1.addEventListener("click", (e2) => {
+  continentsDiv1.addEventListener("click", (e2) => {
     console.log(e2.target.className);
     if (e2.target.className.includes("confirmed")) {
       console.log(europeConfirmed);
@@ -281,7 +278,7 @@ async function showStatsByCaseEurope() {
 
 //africa
 async function showStatsByCaseAfrica() {
-  contiDiv1.addEventListener("click", (e2) => {
+  continentsDiv1.addEventListener("click", (e2) => {
     console.log(e2.target.className);
     if (e2.target.className.includes("confirmed")) {
       console.log(africaConfirmed);
@@ -310,7 +307,7 @@ async function showStatsByCaseAfrica() {
 
 //oceania
 async function showStatsByCaseOceania() {
-  contiDiv1.addEventListener("click", (e2) => {
+  continentsDiv1.addEventListener("click", (e2) => {
     console.log(e2.target.className);
     if (e2.target.className.includes("confirmed")) {
       console.log(oceaniaConfirmed);
