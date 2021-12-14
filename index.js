@@ -13,9 +13,10 @@ const oceaniaButton = document.querySelector('.oceaniaButton');
 const americaButton = document.querySelector('.americaButton');
 const africaButton = document.querySelector('.africaButton');
 const countriesForEachRegion = document.querySelector('.countriesForEachRegion');
-
-const asiaDeathButton = document.querySelector('.deaths');
-
+const confirmedButton = document.querySelector('.confirmed');
+const deathButton = document.querySelector('.deaths');
+const recoveredButton = document.querySelector('.recovered');
+const criticalButton = document.querySelector('.critical');
 let chartContinent = new Chart(graph, {});
 
 let arrEurope = [];
@@ -151,9 +152,14 @@ function newArrOfRegion(allCountriesArr) {
 }
 
 
+function changeButtonColorWhenClicked(buttonName,color){
+  buttonName.style.backgroundColor=color;
+}
+
 async function showStat(allCountriesArr) {
+
   contiDiv2.addEventListener("click", (e) => {
-    console.log(e.target.className)
+    document.querySelector(".none").style.display="none";
     if (e.target.className.includes("asia")) {
       createButtonsForEachCountry(asiaName);
       chartContinent.destroy();
@@ -376,8 +382,12 @@ function drawChart(covidData, continent) {
   });
 }
 
+window.onload = function() {
+  drawChart(asiaConfirmed,asiaName);
+};
 
 async function main() {
+
   let allCountriesArr = await getCountry();
   console.log("here", allCountriesArr);
   allCountriesArr = await getConti(allCountriesArr);
