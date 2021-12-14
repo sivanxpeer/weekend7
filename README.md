@@ -8,3 +8,4 @@ TODO-
 * check how to avoid all global arrays
 * correct Americas data
 * add some more styling
+* make site mobile responsive
