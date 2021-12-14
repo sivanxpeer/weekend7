@@ -4,6 +4,7 @@
   padding: 0;
 }
 body{
+  font-family: Arial, Helvetica, sans-serif;
   height: 100%;
 }
 button {
@@ -64,7 +65,7 @@ button:hover {
 }
 
 .canvas {
-  margin: 0 auto;
+  margin: 0.5rem auto;
   margin-top: 3%;
   height: 80%;
   width: 70%;
@@ -76,4 +77,22 @@ button:hover {
   margin: 0 auto;
   /* height:10%; */
 }
+.mobile{
+  display: none;
+}
 
+@media (max-width<=600px){
+  .mobile{
+    display: flex;
+    height: fit-content;
+  }
+
+  .canvas{
+    height: 80%;
+    width:100%;
+  }
+
+  .countries-for-each-region{
+    height: 10rem;
+  }
+}
