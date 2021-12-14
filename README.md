@@ -4,5 +4,7 @@ https://covid19-stats-world.netlify.app/
 
 
 TODO-
-* need to correct Americas data
+* break into smaller functions
+* check how to avoid all global arrays
+* correct Americas data
 * add some more styling
