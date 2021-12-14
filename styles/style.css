@@ -77,22 +77,3 @@ button:hover {
   margin: 0 auto;
   /* height:10%; */
 }
-.mobile{
-  display: none;
-}
-
-@media (max-width<=600px){
-  .mobile{
-    display: flex;
-    height: fit-content;
-  }
-
-  .canvas{
-    height: 80%;
-    width:100%;
-  }
-
-  .countries-for-each-region{
-    height: 10rem;
-  }
-}
